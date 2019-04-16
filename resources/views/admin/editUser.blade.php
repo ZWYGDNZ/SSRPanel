@@ -112,19 +112,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!--
-                                            <div class="form-group">
-                                                <label for="score" class="col-md-3 control-label">积分</label>
-                                                <div class="col-md-5">
-                                                    <p class="form-control-static"> {{$user->score}} </p>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div style="float:right;">
-                                                        <button type="button" class="btn btn-sm btn-danger">操作</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            -->
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">有效期</label>
                                                 <div class="col-md-8">
@@ -217,7 +204,7 @@
                                             </div>
                                             <hr>
                                             <div class="form-group">
-                                                <label for="speed_limit_per_user" class="col-md-3 control-label">邀请人</label>
+                                                <label for="referral_uid" class="col-md-3 control-label">邀请人</label>
                                                 <div class="col-md-8">
                                                     <p class="form-control-static"> {{empty($user->referral) ? '无邀请人' : $user->referral->username}} </p>
                                                 </div>
@@ -328,8 +315,9 @@
                                                 <div class="col-md-8">
                                                     <div class="input-group">
                                                         <input type="text" class="form-control" name="speed_limit_per_con" value="{{$user->speed_limit_per_con}}" id="speed_limit_per_con" autocomplete="off">
-                                                        <span class="input-group-addon">KB</span>
+                                                        <span class="input-group-addon">Byte</span>
                                                     </div>
+                                                    <span class="help-block"> 为 0 时不限速 </span>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -337,8 +325,9 @@
                                                 <div class="col-md-8">
                                                     <div class="input-group">
                                                         <input type="text" class="form-control" name="speed_limit_per_user" value="{{$user->speed_limit_per_user}}" id="speed_limit_per_user" autocomplete="off">
-                                                        <span class="input-group-addon">KB</span>
+                                                        <span class="input-group-addon">Byte</span>
                                                     </div>
+                                                    <span class="help-block"> 为 0 时不限速 </span>
                                                 </div>
                                             </div>
                                             <hr>
@@ -456,7 +445,6 @@
             var password = $('#password').val();
             var pay_way = $("input:radio[name='pay_way']:checked").val();
             var balance = $('#balance').val();
-            var score = $('#score').val();
             var status = $("input:radio[name='status']:checked").val();
             var labels = $('#labels').val();
             var enable_time = $('#enable_time').val();
@@ -501,7 +489,6 @@
                     usage:usage,
                     pay_way:pay_way,
                     balance:balance,
-                    score:score,
                     status:status,
                     labels:labels,
                     enable_time:enable_time,
